@@ -7,3 +7,6 @@ nrow(merged)
 merged1 <- merged[order(merged$V2, decreasing=TRUE),]
 merged1[13,]$Long.Name
 tapply(merged1$V2, merged1$Income.Group, summary, simplify = TRUE)
+groups <- cut(merged1$V2, 5)
+merged2 <- cbind(merged1,groups)
+table(merged2$Income.Group,merged2$groups)
