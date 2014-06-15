@@ -2,7 +2,7 @@ download.file(url="https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.cs
 download.file(url="https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country.csv", destfile="country.csv", method="curl")gdp <- read.csv("gdp.csv", header=FALSE, skip=5, nrows=190, na.strings=c("NA","..",""))
 gdp <- read.csv("gdp.csv", header=FALSE, skip=5, nrows=190, na.strings=c("NA","..",""))
 country <- read.csv("country.csv")
-merged <- merge(gdp, country, by.x="V1", by.y="CountryCode", all=TRUE)
+merged <- merge(gdp, country, by.x="V1", by.y="CountryCode")
 nrow(merged)
 merged1 <- merged[order(merged$V2, decreasing=TRUE),]
 merged1[13,]$Long.Name
